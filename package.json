@@ -1,6 +1,6 @@
 {
   "name": "react-md-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A component for rendering markdown files with React.",
   "license": "MIT",
   "author": "Gareth Williams (gazzwi86)",
