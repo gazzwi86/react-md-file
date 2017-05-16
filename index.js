@@ -3111,7 +3111,13 @@ var ReactMdComponent = function (_React$Component) {
     value: function componentWillMount() {
       var _this2 = this;
 
-      if (this.props.fileName !== void 0) {
+      if (this.props.markdown !== void 0) {
+        this.setState({
+          md: this.props.markdown
+        });
+      }
+
+      if (this.props.markdown === '' && this.props.fileName !== void 0) {
         this.fetchFile(this.props.fileName).then(function (res) {
           _this2.setState({
             md: res
@@ -3180,11 +3186,13 @@ var ReactMdComponent = function (_React$Component) {
 }(_react2.default.Component);
 
 ReactMdComponent.propTypes = {
-  fileName: _propTypes2.default.string.isRequired,
+  markdown: _propTypes2.default.string,
+  fileName: _propTypes2.default.string,
   nested: _propTypes2.default.bool
 };
 
 ReactMdComponent.defaultProps = {
+  markdown: '',
   fileName: '',
   nested: false
 };
