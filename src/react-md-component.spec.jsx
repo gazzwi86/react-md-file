@@ -35,4 +35,10 @@ Hello world`);
     mountedComp.setProps({ fileName: file, nested: true });
     expect(mountedComp.html()).toContain('<h2');
   });
+
+  it('should output a h1 from markdown string', () => {
+    mountedComp = mount(<Component markdown="# hello world" />);
+    expect(mountedComp.text()).toContain('hello world');
+    expect(mountedComp.html()).toContain('<h1');
+  });
 });

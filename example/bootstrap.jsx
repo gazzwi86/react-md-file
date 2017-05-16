@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import Component from '../src/react-md-component.jsx';
 
 (function() {
+  let md = '# hello world';
+
   ReactDOM.render(
     <div>
-      <Component fileName="README.md" nested={false} />
-      <Component fileName="README.md" nested={true} />
+      <Component markdown={md} />
+      <Component fileName="README.md" />
+      <Component fileName="README.md" nested />
     </div>,
     document.getElementById('app')
   );

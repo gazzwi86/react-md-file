@@ -14,6 +14,7 @@ Then simply require and pass a file name.  If you wish the nest the resulting ma
 ```js
 import ReactMd from 'react-md-file';
 
-<ReactMd fileName="README.md" nested={false} />
-<ReactMd fileName="README.md" nested={true} />
+<ReactMd markdown="# hello world" />
+<ReactMd fileName="README.md" />
+<ReactMd fileName="README.md" nested />
 ```

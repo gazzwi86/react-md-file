@@ -26,7 +26,13 @@ class ReactMdComponent extends React.Component {
 
   // TODO: move to action etc
   componentWillMount() {
-    if (this.props.fileName !== void 0) {
+    if (this.props.markdown !== void 0) {
+      this.setState({
+        md: this.props.markdown
+      });
+    }
+
+    if (this.props.markdown === '' && this.props.fileName !== void 0) {
       this.fetchFile(this.props.fileName).then(res => {
         this.setState({
           md: res
@@ -87,11 +93,13 @@ class ReactMdComponent extends React.Component {
 }
 
 ReactMdComponent.propTypes = {
-  fileName: PropTypes.string.isRequired,
+  markdown: PropTypes.string,
+  fileName: PropTypes.string,
   nested: PropTypes.bool
 };
 
 ReactMdComponent.defaultProps = {
+  markdown: '',
   fileName: '',
   nested: false
 };
