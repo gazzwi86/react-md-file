@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Component from './react-md-component.jsx';
+
+configure({ adapter: new Adapter() });
 
 describe('<ReactMd />', () => {
   const file = '../example/README.md';

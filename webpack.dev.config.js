@@ -1,13 +1,13 @@
-import path from 'path';
+const path = require('path');
+const webpack = require('webpack');
 
-export default {
-  entry: './src/react-md-component.jsx',
+module.exports = {
+  mode: 'development',
+  entry: './example/bootstrap.jsx',
   output: {
-    library: 'reactMdComponent',
-    libraryTarget: 'umd',
-    path: __dirname + '/',
+    path: __dirname + '/example/',
     publicPath: '/',
-    filename: 'index.js'
+    filename: 'bundle.js'
   },
   devtool: 'source-map',
   resolve: {
@@ -17,7 +17,7 @@ export default {
     }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
@@ -61,5 +61,8 @@ export default {
         loader: 'file-loader?name=fonts/[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
 };
